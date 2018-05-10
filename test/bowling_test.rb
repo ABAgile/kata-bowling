@@ -15,4 +15,9 @@ describe Bowling do
     subject.roll('X' * 12)
     assert_equal 300, subject.score
   end
+
+  it 'should score 90 for heartbreak game (9-pin each round)' do
+    subject.roll('9-' * 10)
+    assert_equal 90, subject.score
+  end
 end
