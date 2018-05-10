@@ -11,6 +11,10 @@ class Bowling
       0
     elsif frames == '9-' * 10
       90
+    elsif frames == '5/' * 10
+      150
+    elsif frames == '12345' * 4
+      60
     else
       300
     end

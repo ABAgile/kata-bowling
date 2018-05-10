@@ -20,4 +20,14 @@ describe Bowling do
     subject.roll('9-' * 10)
     assert_equal 90, subject.score
   end
+
+  it 'should score 150 for 5/ each round' do
+    subject.roll('5/' * 10)
+    assert_equal 150, subject.score
+  end
+
+  it 'should score 60 for sample game' do
+    subject.roll('12345' * 4)
+    assert_equal 60, subject.score
+  end
 end
