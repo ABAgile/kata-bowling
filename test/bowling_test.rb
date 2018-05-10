@@ -22,7 +22,7 @@ describe Bowling do
   end
 
   it 'should score 150 for 5/ each round' do
-    subject.roll('5/' * 10)
+    subject.roll('5/' * 10 + '5')
     assert_equal 150, subject.score
   end
 
