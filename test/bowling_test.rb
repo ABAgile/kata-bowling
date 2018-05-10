@@ -4,8 +4,6 @@ require 'minitest/pride'
 require_relative '../lib/bowling'
 
 describe Bowling do
-  subject { Bowling.new }
-
   it 'should score correctly' do
     [
       ['--------------------',  0],
@@ -15,8 +13,7 @@ describe Bowling do
       ['12345123451234512345',  60],
       ['263/8-X9/8-8-8-8-X9/',  124]
     ].each do |result, score|
-      subject.roll(result)
-      assert_equal score, subject.score
+      assert_equal score, Bowling.cal_score(result)
     end
   end
 end
