@@ -6,28 +6,17 @@ require_relative '../lib/bowling'
 describe Bowling do
   subject { Bowling.new }
 
-  it 'should score 0 for all missed' do
-    subject.roll('-' * 20)
-    assert_equal 0, subject.score
-  end
-
-  it 'should score 300 for perfect game' do
-    subject.roll('X' * 12)
-    assert_equal 300, subject.score
-  end
-
-  it 'should score 90 for heartbreak game (9-pin each round)' do
-    subject.roll('9-' * 10)
-    assert_equal 90, subject.score
-  end
-
-  it 'should score 150 for 5/ each round' do
-    subject.roll('5/' * 10 + '5')
-    assert_equal 150, subject.score
-  end
-
-  it 'should score 60 for sample game' do
-    subject.roll('12345' * 4)
-    assert_equal 60, subject.score
+  it 'should score correctly' do
+    [
+      ['--------------------',  0],
+      ['XXXXXXXXXXXX',          300],
+      ['9-9-9-9-9-9-9-9-9-9-',  90],
+      ['5/5/5/5/5/5/5/5/5/5/5', 150],
+      ['12345123451234512345',  60],
+      ['263/8-X9/8-8-8-8-X9/',  124]
+    ].each do |result, score|
+      subject.roll(result)
+      assert_equal score, subject.score
+    end
   end
 end
