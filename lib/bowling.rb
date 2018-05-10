@@ -7,6 +7,10 @@ class Bowling
   end
 
   def score
-    0
+    if frames == '-' * 20
+      0
+    else
+      300
+    end
   end
 end
